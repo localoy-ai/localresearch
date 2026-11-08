@@ -1,6 +1,6 @@
 ---
 name: model-optimize
-version: 0.1.1
+version: 0.2.0
 publisher: localoy
 capabilities: [files, shell]
 description: Get the best real performance out of a model under a fixed compute budget, and prove the gain — strongest baseline first, data and loss before knobs, curve diagnosis, Bayesian search with early pruning across parallel trials, proper training, honest ensembling, ablations, seeds and nested CV with an equal budget for every candidate. (localresearch)
@@ -35,9 +35,18 @@ is no plan, write one first (`research-plan`).
 
 Run every trial with the `experiment` tool: one `group` per search, `goal`
 set from the plan (`rmse:min`), the trial's settings in `params`, and its
-seed in `seed`. The training script writes measurements only (scores,
-losses, times) to `$RUN_DIR/metrics.json` and learning curves to
-`$RUN_DIR/curves.json`. The ledger is the leaderboard, and the person can
+seed in `seed`, its steps in `pipeline`. The training script writes
+measurements only (scores, losses, times) to `$RUN_DIR/metrics.json` and
+learning curves to `$RUN_DIR/curves.json`, and **prints its progress as it
+goes**, so the person can watch it live:
+
+```python
+print(f"RUN_PROGRESS {epoch}/{epochs} epoch", flush=True)
+print(f"RUN_METRIC train_loss={tl:.5f} val_rmse={vr:.5f} step={epoch}", flush=True)
+```
+
+Printed metrics also count as the run's result and curves when no files
+are written. The ledger is the leaderboard, and the person can
 watch it in Analytics.
 
 ## The method, in order

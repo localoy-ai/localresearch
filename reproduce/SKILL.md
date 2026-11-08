@@ -81,7 +81,9 @@ every patch is one diff.
 Each stage is an `experiment` (group `faithful`), with the claimed number
 for that stage named in the run's notes. When their code prints numbers
 instead of writing `metrics.json`, add a few lines that write the printed
-values to `$RUN_DIR/metrics.json`, and record that patch. Notebooks run
+values to `$RUN_DIR/metrics.json` (or prints them as `RUN_METRIC name=value`
+lines), and record that patch. For long stages, a `RUN_PROGRESS done/total`
+line per fold or epoch lets the person watch it. Notebooks run
 headless (`jupyter nbconvert --to notebook --execute`, or papermill) as
 experiments too.
 

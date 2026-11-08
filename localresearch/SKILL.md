@@ -1,6 +1,6 @@
 ---
 name: localresearch
-version: 0.2.0
+version: 0.3.0
 publisher: localoy
 capabilities: []
 description: Router for the localresearch skills — sends any research request (literature, study design, data, modeling, simulation, review, write-up) to the right skill, in the order research actually happens. (localresearch)

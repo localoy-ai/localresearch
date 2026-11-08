@@ -37,7 +37,8 @@ stops being valid.
 Every simulation run goes through the `experiment` tool: one `group` per
 study, the parameter values in `params`, the seed in `seed`, and the outputs
 of interest written by the simulation to `$RUN_DIR/metrics.json` (and time
-series to `$RUN_DIR/curves.json`).
+series to `$RUN_DIR/curves.json`). Long runs print `RUN_PROGRESS done/total
+step` as they go.
 
 1. **Verify before sweeping.** Run the model against a case with a known
    answer: an analytic solution, a conserved quantity, a published result.

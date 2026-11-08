@@ -1,6 +1,6 @@
 ---
 name: localresearch
-version: 0.1.0
+version: 0.2.0
 publisher: localoy
 capabilities: []
 description: Router for the localresearch skills — sends any research request (literature, study design, data, modeling, simulation, review, write-up) to the right skill, in the order research actually happens. (localresearch)
@@ -10,7 +10,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [router, research, localresearch]
-    related_skills: [deep-research, research-plan, data-audit, model-optimize, simulation-sweep, research-review, write-up]
+    related_skills: [deep-research, research-plan, data-audit, model-optimize, simulation-sweep, reproduce, research-review, write-up]
 allowed-tools:
   - Read
   - Skill
@@ -31,6 +31,7 @@ tags: [router, research, pipeline]
 | Check a dataset: rows, groups, clusters, leakage, references | `data-audit` | `## Data audit` in the PLAN |
 | Train and tune the best model, honestly | `model-optimize` | runs in `runs/`, `## Results` in the PLAN |
 | Sweep a simulation: verify, sensitivity, uncertainty, where it breaks | `simulation-sweep` | runs in `runs/`, `## Results` in the PLAN |
+| Run someone else's repo, paper code or notebook, faithfully then honestly | `reproduce` | `## Reproduction` in the PLAN |
 | Try to break a result before it goes out | `research-review` | `review-<topic>.md` |
 | Write the report or paper | `write-up` | the report, claim-checked |
 

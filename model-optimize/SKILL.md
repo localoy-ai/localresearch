@@ -1,6 +1,6 @@
 ---
 name: model-optimize
-version: 0.1.0
+version: 0.1.1
 publisher: localoy
 capabilities: [files, shell]
 description: Get the best real performance out of a model under a fixed compute budget, and prove the gain — strongest baseline first, data and loss before knobs, curve diagnosis, Bayesian search with early pruning across parallel trials, proper training, honest ensembling, ablations, seeds and nested CV with an equal budget for every candidate. (localresearch)
@@ -62,7 +62,8 @@ watch it in Analytics.
 5. **Train well.** Use warmup with a cosine or one-cycle schedule, gradient
    clipping, EMA or stochastic weight averaging, mixed precision where it is
    safe, checkpoints, and a restart from the best point after a collapse.
-   Use the GPU when there is one (CUDA, or MPS on a Mac).
+   Use the device the run is given (`$RUN_DEVICE`: mps, cuda or cpu) and its
+   share of the cores (`$RUN_THREADS`; set `torch.set_num_threads` from it).
 6. **The last bit, honestly.** Ensembles across seeds and models, stacking,
    test-time augmentation where it fits, and distillation, pruning or
    quantization when deployment needs them, with the accuracy cost measured.
